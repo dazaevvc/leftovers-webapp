@@ -1,3 +1,5 @@
+const db = require("../models/restaurant");
+
 function getLeftoverList (req, res){
   res.send("This is the homepage");
 };
