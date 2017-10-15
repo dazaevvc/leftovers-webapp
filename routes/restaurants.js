@@ -2,6 +2,22 @@ function getLeftoverList (req, res){
   res.send("This is the homepage");
 };
 
-module.exports= {
+function getLeftoverListId (req, res){
+  res.send("This is the single ID page");
+};
+
+function createLeftoverList (req, res){
+  res.send("This is the create page");
+};
+
+function updateLeftoverList (req, res){
+  res.send("This is the update page");
+};
+
+function removeLeftoverList (req, res){
+  res.send("This is the delete homepage");
+};
+
+module.exports = {
   getLeftoverList: getLeftoverList
 }
