@@ -19,5 +19,9 @@ function removeLeftoverList (req, res){
 };
 
 module.exports = {
-  getLeftoverList: getLeftoverList
+  getLeftoverList: getLeftoverList,
+  getLeftoverList: getLeftoverList,
+  createLeftoverList: createLeftoverList,
+  updateLeftoverList: updateLeftoverList,
+  removeLeftoverList: removeLeftoverList
 }
