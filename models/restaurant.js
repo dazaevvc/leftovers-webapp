@@ -1,9 +1,11 @@
 //REQUIRE MONGOOSE CONST
 const mongoose = require("mongoose");
+
 //SCHEMA HANDLER
 const Schema = mongoose.Schema;
+
 //RESTAURANT SCHEMA
-const restaurant = new Schema ({
+const RestaurantSchema = new Schema ({
   name: {
     type: String,
     required: true,
@@ -27,3 +29,8 @@ const restaurant = new Schema ({
     unique: true
   }
 })
+
+//RESTAURANT MODEL EXPORT
+const Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+
+module.exports = Restaurant;
