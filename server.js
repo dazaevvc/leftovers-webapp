@@ -28,12 +28,20 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 //APP ROUTES
 const restRoutes = require("./routes/restaurants");
+const foodRoutes = require("./routes/foods");
 
 app.get("/", restRoutes.getLeftoverList);
 app.get("/id:", restRoutes.getLeftoverListId);
 app.post("/", restRoutes.createLeftoverList);
 app.put("/id:", restRoutes.updateLeftoverList);
 app.remove("/", restRoutes.removeLeftoverList);
+
+
+app.get("/", restRoutes.getFoodList);
+app.get("/id:", restRoutes.getOneFood);
+app.post("/", restRoutes.createFoodItem);
+app.put("/id:", restRoutes.updateFoodItem);
+app.remove("/", restRoutes.removeFood);
 
 
 
