@@ -23,3 +23,44 @@ function getOneFood(req, res){
   });
 };
 
+function createFoodItem (req, res){
+  const newFood = db.Food({
+   //food schema
+  });
+
+  newFood.save(function(err, data) {
+    if (err) {
+      console.log('Error saving food to DB.', err);
+      res.status(500).send('Internal server error');
+    } else {
+      json(data);
+    }
+  });
+
+};
+
+function updateFoodItem (req, res){
+  var foodId = req.params.id;
+  Food.findOneAndUpdate({_id: foodId}, updateFood, function(err, updatedFood){
+    res.json(updatedFood);
+  })
+  res.send("This is the update food page");
+};
+
+
+function removeFood (req, res){
+  var foodId = req.params.id;
+  Food.findOneAndRemove({_id: foodId}, function(err, deleteFood){
+    res.json(deleteFood);
+  res.send("This is the delete food homepage");
+
+  });
+};
+
+module.exports = {
+  getFoodList: getFoodList,
+  getOneFood: getOneFood,
+  createFoodItem: createFoodItem,
+  updateFoodItem: updateFoodItem,
+  removeFood: removeFood
+}
