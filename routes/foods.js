@@ -35,7 +35,7 @@ function createFoodItem (req, res){
       console.log('Error saving food to DB.', err);
       res.status(500).send('Internal server error');
     } else {
-      json(data);
+      res.json(data);
     }
   });
 
@@ -62,7 +62,6 @@ function updateFoodItem (req, res){
 function removeFood (req, res){
   var foodId = req.params.id;
   db.Food.findOneAndRemove({_id: foodId}, function(err, deleteFood){
-    res.send("This is the food homepage");
   });
 };
 
