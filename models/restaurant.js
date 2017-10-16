@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 //SCHEMA HANDLER
 const Schema = mongoose.Schema;
+const foodModels = require('./food');
 
 //RESTAURANT SCHEMA
 const RestaurantSchema = new Schema ({
@@ -16,8 +17,10 @@ const RestaurantSchema = new Schema ({
     required: true,
     unique: true
   },
-  foodLeft:
-    [String],
+  foodLeft: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'foodModels'
+  }],
   phoneNum: {
     type: Number,
     required: true,
