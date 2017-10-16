@@ -12,7 +12,7 @@ function getFoodList (req, res){
   });
 };
 
-function getOneFood(req, res){
+function getFoodItem(req, res){
   db.Food.findOne({_id: req.params.id}, function(err, restFoodDataId){
     if (err) {
       console.log('Error retrieving foodId from DB.', err);
@@ -43,25 +43,32 @@ function createFoodItem (req, res){
 
 function updateFoodItem (req, res){
   var foodId = req.params.id;
-  Food.findOneAndUpdate({_id: foodId}, updateFood, function(err, updatedFood){
-    res.json(updatedFood);
+  var updateFoodItem = {
+   name: req.body.name,
+   weight: req.body.weight,
+   datePrepared: req.body.datePrepared
+ };
+
+  db.Food.findOneAndUpdate({_id: foodId}, updateFoodItem, function(err, data){
+    if (err) {
+      console.log("Error updating food", err);
+    } else {
+      res.status(201).json(data);
+    }
   })
-  res.send("This is the updated food page");
 };
 
 
 function removeFood (req, res){
   var foodId = req.params.id;
-  Food.findOneAndRemove({_id: foodId}, function(err, deleteFood){
-    res.json(deleteFood);
-  res.send("This is the delete food homepage");
-
+  db.Food.findOneAndRemove({_id: foodId}, function(err, deleteFood){
+    res.send("This is the food homepage");
   });
 };
 
 module.exports = {
   getFoodList: getFoodList,
-  getOneFood: getOneFood,
+  getFoodItem: getFoodItem,
   createFoodItem: createFoodItem,
   updateFoodItem: updateFoodItem,
   removeFood: removeFood
