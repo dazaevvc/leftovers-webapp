@@ -34,7 +34,7 @@ app.get("/restaurants", restRoutes.getRestaurantList);
 app.get("/restaurants/:id", restRoutes.getRestaurantListId);
 app.post("/restaurants", restRoutes.createRestaurantList);
 app.put("/restaurants/:id", restRoutes.updateRestaurantList);
-app.delete("/restaurants", restRoutes.removeRestaurantList);
+app.delete("/restaurants/:id", restRoutes.removeRestaurantList);
 
 
 app.get("/food", foodRoutes.getFoodList);

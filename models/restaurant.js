@@ -18,11 +18,11 @@ const RestaurantSchema = new Schema ({
     unique: true
   },
   foodLeft: [{
-    type: Schema.Types.ObjectId, 
+    type: Schema.Types.ObjectId,
     ref: 'foodModels'
   }],
   phoneNum: {
-    type: Number,
+    type: String,
     required: true,
     unique: true
   },
@@ -36,4 +36,6 @@ const RestaurantSchema = new Schema ({
 //RESTAURANT MODEL EXPORT
 const Restaurant = mongoose.model("Restaurant", RestaurantSchema);
 
-module.exports = Restaurant;
+module.exports = {
+  Restaurant: Restaurant
+}

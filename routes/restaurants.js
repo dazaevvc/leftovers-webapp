@@ -36,7 +36,7 @@ function createRestaurantList (req, res){
       console.log('Error saving restaurant to DB.', err);
       res.status(500).send('Internal server error');
     } else {
-      json(data);
+      res.json(data);
     }
   });
 
@@ -44,18 +44,27 @@ function createRestaurantList (req, res){
 
 function updateRestaurantList (req, res){
   var restaurantId = req.params.id;
-  Retaurant.findOneAndUpdate({_id: restaurantId}, updateRetaurant, function(err, updatedRestaurant){
-    res.json(updatedRestaurant);
+  var updateRestaurantList = {
+    name: req.body.name,
+    address: req.body.address,
+    foodLeft: req.body.foodLeft,
+    phoneNum: req.body.phoneNum,
+    email: req.body.email
+  };
+
+  db.Restaurant.findOneAndUpdate({_id: restaurantId}, updateRestaurantList, function(err, data){
+    if (err) {
+      console.log("Error updating restaurant", err);
+    } else {
+      res.status(201).json(data);
+    }
   })
-  res.send("This is the update page");
 };
 
 function removeRestaurantList (req, res){
   var restaurantId = req.params.id;
-  Restaurant.findOneAndRemove({_id: restaurantId}, function(err, deleteRestaurant){
-    res.json(deleteRestaurant);
-  res.send("This is the delete homepage");
-
+  db.Restaurant.findOneAndRemove({_id: restaurantId}, function(err, deleteRestaurant){
+    res.send("This is the delete homepage");
   });
 };
 
