@@ -43,6 +43,10 @@ function createLeftoverList (req, res){
 };
 
 function updateLeftoverList (req, res){
+  var restaurantId = req.params.id;
+  Retaurant.findOneAndUpdate({_id: restaurantId}, updateRetaurant, function(err, updatedRestaurant){
+    res.json(updatedRestaurant);
+  })
   res.send("This is the update page");
 };
 
