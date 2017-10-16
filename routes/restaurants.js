@@ -47,7 +47,12 @@ function updateLeftoverList (req, res){
 };
 
 function removeLeftoverList (req, res){
+  var restaurantId = req.params.id;
+  Restaurant.findOneAndRemove({_id: restaurantId}, function(err, deleteRestaurant){
+    res.json(deleteRestaurant);
   res.send("This is the delete homepage");
+
+  });
 };
 
 module.exports = {
