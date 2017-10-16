@@ -23,6 +23,16 @@ function createLeftoverList (req, res){
     phoneNum: req.body.phoneNum,
     email: req.body.email
   });
+
+  newRestaurant.save(function(err, data) {
+    if (err) {
+      console.log('Error saving restaurant to DB.', err);
+      res.status(500).send('Internal server error');
+    } else {
+      json(data);
+    }
+  });
+  
 };
 
 function updateLeftoverList (req, res){
