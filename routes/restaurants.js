@@ -1,17 +1,17 @@
 const db = require("../models/restaurant");
 
-function getLeftoverList (req, res){
+function getRestaurantList (req, res){
   db.Restaurant.find({}, function(err, restData) {
       if (err) {
         console.log('Error retrieving restaurants from DB.', err);
         res.status(500).send('Internal server error');
       } else {
-        res.json(rest);
+        res.json(restData);
       }
     });
 };
 
-function getLeftoverListId (req, res){
+function getRestaurantListId (req, res){
   db.Restaurant.findOne({_id: req.params.id}, function(err, restDataId){
     if (err) {
       console.log('Error retrieving restaurants from DB.', err);
@@ -22,7 +22,7 @@ function getLeftoverListId (req, res){
   });
 };
 
-function createLeftoverList (req, res){
+function createRestaurantList (req, res){
   const newRestaurant = db.Restaurant({
     name: req.body.name,
     address: req.body.address,
@@ -42,7 +42,7 @@ function createLeftoverList (req, res){
 
 };
 
-function updateLeftoverList (req, res){
+function updateRestaurantList (req, res){
   var restaurantId = req.params.id;
   Retaurant.findOneAndUpdate({_id: restaurantId}, updateRetaurant, function(err, updatedRestaurant){
     res.json(updatedRestaurant);
@@ -50,7 +50,7 @@ function updateLeftoverList (req, res){
   res.send("This is the update page");
 };
 
-function removeLeftoverList (req, res){
+function removeRestaurantList (req, res){
   var restaurantId = req.params.id;
   Restaurant.findOneAndRemove({_id: restaurantId}, function(err, deleteRestaurant){
     res.json(deleteRestaurant);
@@ -60,9 +60,9 @@ function removeLeftoverList (req, res){
 };
 
 module.exports = {
-  getLeftoverList: getLeftoverList,
-  getLeftoverList: getLeftoverList,
-  createLeftoverList: createLeftoverList,
-  updateLeftoverList: updateLeftoverList,
-  removeLeftoverList: removeLeftoverList
+  getRestaurantList: getRestaurantList,
+  getRestaurantListId: getRestaurantListId,
+  createRestaurantList: createRestaurantList,
+  updateRestaurantList: updateRestaurantList,
+  removeRestaurantList: removeRestaurantList
 }

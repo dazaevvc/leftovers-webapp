@@ -7,7 +7,7 @@ function getFoodList (req, res){
       console.log('error retreiving food info from the db', err);
       res.status(500).send('internal server error');
     } else{
-      res.json(rest);
+      res.json(foodData);
     }
   });
 };
@@ -15,7 +15,7 @@ function getFoodList (req, res){
 function getOneFood(req, res){
   db.Food.findOne({_id: req.params.id}, function(err, restFoodDataId){
     if (err) {
-      console.log('Error retrieving foodid from DB.', err);
+      console.log('Error retrieving foodId from DB.', err);
       res.status(500).send('Internal server error');
     } else {
       res.json(restFoodDataId);
@@ -25,7 +25,9 @@ function getOneFood(req, res){
 
 function createFoodItem (req, res){
   const newFood = db.Food({
-   //food schema
+   name: req.body.name,
+   weight: req.body.weight,
+   datePrepared: req.body.datePrepared
   });
 
   newFood.save(function(err, data) {
@@ -44,7 +46,7 @@ function updateFoodItem (req, res){
   Food.findOneAndUpdate({_id: foodId}, updateFood, function(err, updatedFood){
     res.json(updatedFood);
   })
-  res.send("This is the update food page");
+  res.send("This is the updated food page");
 };
 
 

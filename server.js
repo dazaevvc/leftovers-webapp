@@ -7,7 +7,7 @@ const express = require("express");
 //CONNECTION TO DB
 require("dotenv").config();
 
-mongoose.connection.openURI(process.env.DB_CONN, function(err, conn){
+mongoose.connection.openUri(process.env.MONGODB_URI || process.env.DB_CONN, function(err, conn){
   if (err) {
     console.log("ERROR MY DUDE", err);
   } else {
@@ -30,18 +30,18 @@ app.use(bodyParser.urlencoded({extended:false}));
 const restRoutes = require("./routes/restaurants");
 const foodRoutes = require("./routes/foods");
 
-app.get("/", restRoutes.getLeftoverList);
-app.get("/id:", restRoutes.getLeftoverListId);
-app.post("/", restRoutes.createLeftoverList);
-app.put("/id:", restRoutes.updateLeftoverList);
-app.remove("/", restRoutes.removeLeftoverList);
+app.get("/restaurants", restRoutes.getRestaurantList);
+app.get("/restaurants/:id", restRoutes.getRestaurantListId);
+app.post("/restaurants", restRoutes.createRestaurantList);
+app.put("/restaurants/:id", restRoutes.updateRestaurantList);
+app.delete("/restaurants", restRoutes.removeRestaurantList);
 
 
-app.get("/", restRoutes.getFoodList);
-app.get("/id:", restRoutes.getOneFood);
-app.post("/", restRoutes.createFoodItem);
-app.put("/id:", restRoutes.updateFoodItem);
-app.remove("/", restRoutes.removeFood);
+app.get("/food", foodRoutes.getFoodList);
+app.get("food/:id", foodRoutes.getOneFood);
+app.post("/food", foodRoutes.createFoodItem);
+app.put("food/:id", foodRoutes.updateFoodItem);
+app.delete("/food", foodRoutes.removeFood);
 
 
 
