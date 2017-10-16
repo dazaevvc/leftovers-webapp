@@ -1,18 +1,25 @@
 const db = require("../models/restaurant");
 
 function getLeftoverList (req, res){
-  db.Restaurant.find({}, function(err, data) {
+  db.Restaurant.find({}, function(err, restData) {
       if (err) {
         console.log('Error retrieving restaurants from DB.', err);
         res.status(500).send('Internal server error');
       } else {
-        res.json(data);
+        res.json(rest);
       }
     });
 };
 
 function getLeftoverListId (req, res){
-  res.send("This is the single ID page");
+  db.Restaurant.findOne({_id: req.params.id}, function(err, restDataId){
+    if (err) {
+      console.log('Error retrieving restaurants from DB.', err);
+      res.status(500).send('Internal server error');
+    } else {
+      res.json(restDataId);
+    }
+  };
 };
 
 function createLeftoverList (req, res){
@@ -32,7 +39,7 @@ function createLeftoverList (req, res){
       json(data);
     }
   });
-  
+
 };
 
 function updateLeftoverList (req, res){
