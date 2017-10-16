@@ -19,7 +19,7 @@ function getLeftoverListId (req, res){
     } else {
       res.json(restDataId);
     }
-  };
+  });
 };
 
 function createLeftoverList (req, res){
@@ -43,11 +43,20 @@ function createLeftoverList (req, res){
 };
 
 function updateLeftoverList (req, res){
+  var restaurantId = req.params.id;
+  Retaurant.findOneAndUpdate({_id: restaurantId}, updateRetaurant, function(err, updatedRestaurant){
+    res.json(updatedRestaurant);
+  })
   res.send("This is the update page");
 };
 
 function removeLeftoverList (req, res){
+  var restaurantId = req.params.id;
+  Restaurant.findOneAndRemove({_id: restaurantId}, function(err, deleteRestaurant){
+    res.json(deleteRestaurant);
   res.send("This is the delete homepage");
+
+  });
 };
 
 module.exports = {
