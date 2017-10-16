@@ -16,7 +16,13 @@ function getLeftoverListId (req, res){
 };
 
 function createLeftoverList (req, res){
-  
+  const newRestaurant = db.Restaurant({
+    name: req.body.name,
+    address: req.body.address,
+    foodLeft: req.body.foodLeft,
+    phoneNum: req.body.phoneNum,
+    email: req.body.email
+  });
 };
 
 function updateLeftoverList (req, res){
