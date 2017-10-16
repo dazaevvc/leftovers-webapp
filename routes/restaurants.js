@@ -19,7 +19,7 @@ function getLeftoverListId (req, res){
     } else {
       res.json(restDataId);
     }
-  };
+  });
 };
 
 function createLeftoverList (req, res){
