@@ -19,7 +19,7 @@ const RestaurantSchema = new Schema ({
   },
   foodLeft: [{
     type: Schema.Types.ObjectId,
-    ref: 'foodModels'
+    ref: 'Food'
   }],
   phoneNum: {
     type: String,

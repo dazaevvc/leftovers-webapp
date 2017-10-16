@@ -1,5 +1,5 @@
 const db = require("../models/food");
-
+const db2 = require("../models/restaurant");
 
 function getFoodList (req, res){
   db.Food.find({}, function(err, foodData){
@@ -38,7 +38,8 @@ function createFoodItem (req, res){
       res.json(data);
     }
   });
-
+  var restaurant = new db2.Restaurant();
+  restaurant.foodLeft.push(newFood);
 };
 
 function updateFoodItem (req, res){

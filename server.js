@@ -37,11 +37,11 @@ app.put("/restaurants/:id", restRoutes.updateRestaurantList);
 app.delete("/restaurants/:id", restRoutes.removeRestaurantList);
 
 
-app.get("/food", foodRoutes.getFoodList);
-app.get("/food/:id", foodRoutes.getFoodItem);
-app.post("/food", foodRoutes.createFoodItem);
-app.put("/food/:id", foodRoutes.updateFoodItem);
-app.delete("/food/:id", foodRoutes.removeFood);
+app.get("/restaurants/:id/food", foodRoutes.getFoodList);
+app.get("/restaurants/:id/food/:id", foodRoutes.getFoodItem);
+app.post("/restaurants/:id/food", foodRoutes.createFoodItem);
+app.put("/restaurants/:id/food/:id", foodRoutes.updateFoodItem);
+app.delete("/restaurants/food/:id", foodRoutes.removeFood);
 
 
 
