@@ -1,4 +1,4 @@
-var leftovers_endpoint = "https://mongodb://dazaevvc:Helloworld7@ds011705.mlab.com:11705/leftover-webapp"
+var leftovers_endpoint = DB_CONN
 
 $(document).ready(function() {
   console.log("Let's get coding!");
