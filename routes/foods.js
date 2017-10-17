@@ -13,7 +13,7 @@ function getFoodList (req, res){
 };
 
 function getFoodItem(req, res){
-  db.Food.findOne({_id: req.params.id}, function(err, restFoodDataId){
+  db.Food.findOne({_id: req.params.foodId}, function(err, restFoodDataId){
     if (err) {
       console.log('Error retrieving foodId from DB.', err);
       res.status(500).send('Internal server error');
@@ -43,7 +43,7 @@ function createFoodItem (req, res){
 };
 
 function updateFoodItem (req, res){
-  var foodId = req.params.id;
+  var foodId = req.params.foodId;
   var updateFoodItem = {
    name: req.body.name,
    weight: req.body.weight,
@@ -61,7 +61,7 @@ function updateFoodItem (req, res){
 
 
 function removeFood (req, res){
-  var foodId = req.params.id;
+  var foodId = req.params.foodId;
   db.Food.findOneAndRemove({_id: foodId}, function(err, deleteFood){
   });
 };

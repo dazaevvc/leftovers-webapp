@@ -12,7 +12,7 @@ function getRestaurantList (req, res){
 };
 
 function getRestaurantListId (req, res){
-  db.Restaurant.findOne({_id: req.params.id}, function(err, restDataId){
+  db.Restaurant.findOne({_id: req.params.restId}, function(err, restDataId){
     if (err) {
       console.log('Error retrieving restaurants from DB.', err);
       res.status(500).send('Internal server error');
@@ -43,7 +43,7 @@ function createRestaurantList (req, res){
 };
 
 function updateRestaurantList (req, res){
-  var restaurantId = req.params.id;
+  var restaurantId = req.params.restId;
   var updateRestaurantList = {
     name: req.body.name,
     address: req.body.address,
@@ -62,7 +62,7 @@ function updateRestaurantList (req, res){
 };
 
 function removeRestaurantList (req, res){
-  var restaurantId = req.params.id;
+  var restaurantId = req.params.restId;
   db.Restaurant.findOneAndRemove({_id: restaurantId}, function(err, deleteRestaurant){
     res.send("This is the delete homepage");
   });
