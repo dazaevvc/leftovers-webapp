@@ -22,6 +22,8 @@ const port = 3000;
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
+app.use(express.static('public'))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -30,18 +32,26 @@ app.use(bodyParser.urlencoded({extended:false}));
 const restRoutes = require("./routes/restaurants");
 const foodRoutes = require("./routes/foods");
 
-app.get("/restaurants", restRoutes.getRestaurantList);
-app.get("/restaurants/:restId", restRoutes.getRestaurantListId);
-app.post("/restaurants", restRoutes.createRestaurantList);
-app.put("/restaurants/:restId", restRoutes.updateRestaurantList);
-app.delete("/restaurants/:restId", restRoutes.removeRestaurantList);
+app.get("/", function(req,res) {
+	res.render('index', {});
+});
+
+app.get("/restaurants", function(req,res) {
+	res.render('restaurants', {});
+});
+
+app.get("/api/restaurants", restRoutes.getRestaurantList);
+app.get("/api/restaurants/:restId", restRoutes.getRestaurantListId);
+app.post("/api/restaurants", restRoutes.createRestaurantList);
+app.put("/api/restaurants/:restId", restRoutes.updateRestaurantList);
+app.delete("/api/restaurants/:restId", restRoutes.removeRestaurantList);
 
 
-app.get("/food", foodRoutes.getFoodList);
-app.get("/restaurants/:restId/food/:foodId", foodRoutes.getFoodItem);
-app.post("/restaurants/:restId/food", foodRoutes.createFoodItem);
-app.put("/restaurants/:restId/food/:foodId", foodRoutes.updateFoodItem);
-app.delete("/restaurants/food/:foodId", foodRoutes.removeFood);
+app.get("/api/food", foodRoutes.getFoodList);
+app.get("/api/restaurants/:restId/food/:foodId", foodRoutes.getFoodItem);
+app.post("/api/restaurants/:restId/food", foodRoutes.createFoodItem);
+app.put("/api/restaurants/:restId/food/:foodId", foodRoutes.updateFoodItem);
+app.delete("/api/restaurants/food/:foodId", foodRoutes.removeFood);
 
 
 
