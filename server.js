@@ -1,4 +1,5 @@
 //REQUIRE DEPENDENCIES
+console.log("starting server");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const express = require("express");
