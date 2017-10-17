@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 //SCHEMA HANDLER
 const Schema = mongoose.Schema;
+const restModels = require('./restaurant');
 
 //RESTAURANT SCHEMA
 const FoodSchema = new Schema ({
