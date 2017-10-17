@@ -1,5 +1,4 @@
 //REQUIRE DEPENDENCIES
-console.log("starting server");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const express = require("express");
@@ -23,6 +22,8 @@ const port = process.env.PORT || 3000;
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
+app.use(express.static('views'))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -30,6 +31,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 //APP ROUTES
 const restRoutes = require("./routes/restaurants");
 const foodRoutes = require("./routes/foods");
+
+app.get("/", function (req, res){
+  res.render('index', {})
+});
 
 app.get("/restaurants", restRoutes.getRestaurantList);
 app.get("/restaurants/:restId", restRoutes.getRestaurantListId);
