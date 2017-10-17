@@ -24,22 +24,34 @@ function getFoodItem(req, res){
 };
 
 function createFoodItem (req, res){
-  const newFood = db.Food({
-   name: req.body.name,
-   weight: req.body.weight,
-   datePrepared: req.body.datePrepared
-  });
-
-  newFood.save(function(err, data) {
-    if (err) {
-      console.log('Error saving food to DB.', err);
-      res.status(500).send('Internal server error');
-    } else {
-      res.json(data);
-    }
-  });
-  var restaurant = new db2.Restaurant();
-  restaurant.foodLeft.push(newFood);
+  // retrieve restaurant
+  db2.Restaurant.findOne({_id: req.params.restId}, function(err, restObject){
+    // create new food
+    const newFood = db.Food({
+     name: req.body.name,
+     weight: req.body.weight,
+     datePrepared: req.body.datePrepared
+    });
+    // save new food
+    newFood.save(function(err, savedFood) {
+      if (err) {
+        console.log('Error saving food to DB.', err);
+      } else {
+        console.log("Saved food");
+        // update restaurant to include new food
+        restObject.foodLeft.push(savedFood)
+        restObject.save(function (err, data){
+          if (err) {
+            console.log("Messed up");
+            res.status(501);
+          } else {
+            console.log("got it");
+            res.json(savedFood)
+          }
+        });
+      }
+    })
+  })
 };
 
 function updateFoodItem (req, res){
@@ -73,3 +85,15 @@ module.exports = {
   updateFoodItem: updateFoodItem,
   removeFood: removeFood
 }
+
+
+// db2.Restaurant.find({_id: req.params.restId})
+// .populate('foodLeft')
+// .exec(function(err, foodsLeft) {
+//   if (err) {
+//     console.log("sucks");;
+//   } else {
+//     db2.Restaurant.foodLeft.push(foodsLeft);
+//   console.log('found and populated all foods: ', foodsLeft);
+// }
+// });
