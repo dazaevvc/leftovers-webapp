@@ -30,16 +30,36 @@ function createFoodItem (req, res){
     const newFood = db.Food({
      name: req.body.name,
      weight: req.body.weight,
-     datePrepared: req.body.datePrepared
+     datePrepared: req.body.datePrepared,
+     restName: req.body.restObject
     });
+
+    console.log(restObject);
     // save new food
     newFood.save(function(err, savedFood) {
       if (err) {
+        res.status(501);
         console.log('Error saving food to DB.', err);
       } else {
         console.log("Saved food");
         // update restaurant to include new food
         restObject.foodLeft.push(savedFood)
+
+        db.Food.findOne({foodLeft: req.params.name})
+          .populate('foodLeft')
+          .exec(function(err, foodLeft) {
+            if (err){
+              console.log(err);
+            }
+            if (restObject.foodLeft.length > 0) {
+              console.log("works");
+            }
+            else {
+              console.log("it doesnt show up");
+            }
+            console.log(foodLeft);
+          });
+
         restObject.save(function (err, data){
           if (err) {
             console.log("Messed up");
