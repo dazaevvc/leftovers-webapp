@@ -1,16 +1,18 @@
 h1 {
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
   color: #ebeaed;
 	text-align: center;
-	font-size: 60px;
+	font-size: 69px;
   line-height: 30px;
+  font-weight: bold;
 }
 
 h2 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #ebeaed;
   text-align: center;
   font-size: 20px;
+  letter-spacing: 5px;
 
 }
 
