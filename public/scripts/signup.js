@@ -7,7 +7,7 @@ $(document).ready(function() {
       url: 'http://localhost:3000/api/restaurants',
       data: $(this).serialize(),
       success: onSuccess,
-      error: Error
+      error: onError
     });
   });
 });
