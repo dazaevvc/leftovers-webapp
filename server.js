@@ -40,6 +40,10 @@ app.get("/restaurants", function(req,res) {
 	res.render('restaurants', {});
 });
 
+app.get("/signup", function(req,res) {
+	res.render('signup', {});
+});
+
 app.get("/api/restaurants", restRoutes.getRestaurantList);
 app.get("/api/restaurants/:restId", restRoutes.getRestaurantListId);
 app.post("/api/restaurants", restRoutes.createRestaurantList);
