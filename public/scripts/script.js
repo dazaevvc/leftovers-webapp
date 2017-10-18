@@ -7,10 +7,10 @@ $(document).ready(function() {
 		data: '',
 		success: onSuccess,
 		error: onError
-	});	
+	});
 });
 
-function onSuccess(data) {		
+function onSuccess(data) {
 	console.log(data);
 	for (var i = 0; i < data.length ; i++) {
 		$('#main').append('<div class = "name">Restaurant: '+data[i].name+'</div><br>');
@@ -25,6 +25,31 @@ function onSuccess(data) {
 	};
 };
 
-function onError(data) {		
+function onError(data) {
 	console.log('ya dummy');
 };
+
+// post call not sure if it is correct it needs to point to an element in the html and
+//a callback function(i think)
+
+
+// $(document).ready(function() {
+
+//   $("#restForm").on('submit', function(e) {
+//     e.preventDefault();
+//     $.ajax({
+//       method: 'POST',
+//       url: 'http://localhost:3000/api/restaurants',
+//       data: $(this).serialize(),
+//       success: Success,
+//       error: Error
+//     });
+//   });
+
+// }
+
+
+
+
+
+
