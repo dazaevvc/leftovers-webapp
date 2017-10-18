@@ -1,18 +1,23 @@
 const db = require("../models/restaurant");
 
 function getRestaurantList (req, res){
-  db.Restaurant.find({}, function(err, restData) {
-      if (err) {
-        console.log('Error retrieving restaurants from DB.', err);
-        res.status(500).send('Internal server error');
-      } else {
-        res.json(restData);
-      }
-    });
+  db.Restaurant.find({}).
+  populate('foodLeft').
+  exec(function (err, restData){
+    if (err) {
+      console.log('Error retrieving restaurants from DB.', err);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(restData);
+      res.json(restData);
+    }
+  })
 };
 
 function getRestaurantListId (req, res){
-  db.Restaurant.findOne({_id: req.params.restId}, function(err, restDataId){
+  db.Restaurant.findOne({_id: req.params.restId}).
+  populate('foodLeft').
+  exec(function (err, restDataId){
     if (err) {
       console.log('Error retrieving restaurants from DB.', err);
       res.status(500).send('Internal server error');

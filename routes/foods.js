@@ -45,21 +45,6 @@ function createFoodItem (req, res){
         // update restaurant to include new food
         restObject.foodLeft.push(savedFood)
 
-        db.Food.findOne({foodLeft: req.params.name})
-          .populate('foodLeft')
-          .exec(function(err, foodLeft) {
-            if (err){
-              console.log(err);
-            }
-            if (restObject.foodLeft.length > 0) {
-              console.log("works");
-            }
-            else {
-              console.log("it doesnt show up");
-            }
-            console.log(foodLeft);
-          });
-
         restObject.save(function (err, data){
           if (err) {
             console.log("Messed up");
@@ -73,6 +58,22 @@ function createFoodItem (req, res){
     })
   })
 };
+
+// db.Food.findOne({foodLeft: req.params.name})
+//   .populate('foodLeft')
+//   .exec(function(err, foodLeft) {
+//     if (err){
+//       console.log(err);
+//     }
+//     if (restObject.foodLeft.length > 0) {
+//       console.log("works");
+//     }
+//     else {
+//       console.log("it doesnt show up");
+//     }
+//     console.log(foodLeft);
+//   });
+
 
 function updateFoodItem (req, res){
   var foodId = req.params.foodId;
