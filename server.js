@@ -44,6 +44,10 @@ app.get("/signup", function(req,res) {
 	res.render('signup', {});
 });
 
+app.get("/contact", function(req,res) {
+	res.render('contact', {});
+});
+
 app.get("/api/restaurants", restRoutes.getRestaurantList);
 app.get("/api/restaurants/:restId", restRoutes.getRestaurantListId);
 app.post("/api/restaurants", restRoutes.createRestaurantList);
