@@ -72,6 +72,7 @@ app.delete("/api/restaurants/food/:foodId", foodRoutes.removeFood);
 
 
 //CONNECTION TO PORT
-app.listen(port, function(){
-  console.log(`Leftovers server up and running on port ${port}`);
+//app.listen(port, function(){
+  app.listen(process.env.PORT || 3000, function(){
+    console.log(`Leftovers server up and running on port ${PORT}`);
 });
