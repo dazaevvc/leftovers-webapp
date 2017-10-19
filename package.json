@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/dazaevvc/leftovers-webapp#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "bower": "^1.8.2",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
     "mongoose": "^4.12.1"
   }
 }

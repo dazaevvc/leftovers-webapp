@@ -11,7 +11,7 @@ mongoose.connection.openUri(process.env.MONGODB_URI || process.env.DB_CONN, func
   if (err) {
     console.log("ERROR MY DUDE", err);
   } else {
-    console.log("CONNECTED TO MONGO DB", );
+    console.log("CONNECTED TO MONGO DB");
   }
 });
 
@@ -72,6 +72,8 @@ app.delete("/api/restaurants/food/:foodId", foodRoutes.removeFood);
 
 
 //CONNECTION TO PORT
-app.listen(port, function(){
-  console.log(`Leftovers server up and running on port ${port}`);
-});
+//app.listen(port, function(){
+  app.listen(process.env.PORT || 3000)
+//   , function(){
+//     console.log(`Leftovers server up and running on port ${PORT}`);
+// });
