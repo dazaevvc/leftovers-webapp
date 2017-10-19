@@ -137,3 +137,7 @@ form button {
   font-size: 20px;
   letter-spacing: 1px;
 }
+
+form#restForm {
+	text-align: center;
+}

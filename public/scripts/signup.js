@@ -22,12 +22,3 @@ function onSuccess(json) {
 function onError(data) {
 	console.log('ya dummy');
 };
-
-
-
-
-
-
-
-
-
