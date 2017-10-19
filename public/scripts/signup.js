@@ -3,11 +3,12 @@ $(document).ready(function() {
 
   $("#addRest").on('click', function(e) {
 /// maybe signrest = RestaurantSchema
-    var signRest = {  name: $(name).val(),
-                      address: $(address).val(),
-                      foodLeft: $(foodLeft).val(),
-                      phoneNum: $(phoneNum).val(),
-                      email: $(email).val()
+    e.preventDefault();
+    var signRest = {  name: $('#name').val(),
+                      address: $('#address').val(),
+                      foodLeft: $('#foodLeft').val(),
+                      phoneNum: $('#phoneNum').val(),
+                      email: $('#email').val(),
                   };
     $.ajax({
       method: 'POST',
