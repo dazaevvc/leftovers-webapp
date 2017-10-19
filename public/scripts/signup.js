@@ -1,24 +1,31 @@
+//const RestaurantSchema = require('../../models/restaurant')
 $(document).ready(function() {
 
-  $("#restForm").on('submit', function(e) {
-    e.preventDefault();
+  $("#addRest").on('click', function(e) {
+/// maybe signrest = RestaurantSchema
+    var signRest = {  name: $(name).val(),
+                      address: $(address).val(),
+                      foodLeft: $(foodLeft).val(),
+                      phoneNum: $(phoneNum).val(),
+                      email: $(email).val()
+                  };
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3000/api/restaurants',
-      data: $(this).serialize(),
+      data: signRest,
       success: onSuccess,
       error: onError
     });
   });
 });
 
-function onSuccess(json) {
-	console.log(json);
-  $('#restForm input').val('');
-  restaurants.push(json);
+function onSuccess(signRest) {
+	console.log(signRest);
+  $(signRest).val('');
+  api.restaurants.push(signRest);
   render();
 };
 
-function onError(data) {
+function onError(json) {
 	console.log('ya dummy');
 };
