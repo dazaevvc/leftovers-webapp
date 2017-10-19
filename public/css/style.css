@@ -139,5 +139,9 @@ form button {
 }
 
 form#restForm {
+	display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  align-items: center;
 	text-align: center;
 }
