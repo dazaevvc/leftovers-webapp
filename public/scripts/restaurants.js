@@ -19,10 +19,10 @@ function onSuccess(data) {
 		$('#main').append('<div class = "email">'+data[i].email+'</div>');
 		$('#main').append('<div class = "foodHeader">Food Available: <br></div>');
 
-		$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[0].weight+' of '+data[i].foodLeft[0].name+' prepared on '+data[i].foodLeft[0].datePrepared+'</div>');
-			for (var x = 1; x < data[i].foodLeft.length ; x++) {
-				$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[x].weight+' of '+data[i].foodLeft[x].name+' prepared on '+data[i].foodLeft[x].datePrepared+'</div>');
-		};
+		// $('#main').append('<div class = "foodLeft">'+data[i].foodLeft[0].weight+' of '+data[i].foodLeft[0].name+' prepared on '+data[i].foodLeft[0].datePrepared+'</div>');
+		// 	for (var x = 1; x < data[i].foodLeft.length ; x++) {
+		// 		$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[x].weight+' of '+data[i].foodLeft[x].name+' prepared on '+data[i].foodLeft[x].datePrepared+'</div>');
+		// };
 		var restUrlId = data[i]._id;
 		$('#main').append(`<button class="foodButton" type="submit"><a data-id="${restUrlId}" href="http://localhost:3000/restaurants/${restUrlId}/food">Add Food</a></button><br><br><br>`);
 
