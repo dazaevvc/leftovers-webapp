@@ -8,18 +8,43 @@
 	<title></title>
 </head>
 <body>
-	<div class="nav-top">
-		<h1>LEFT&larr;OVERS</h1>
-			<div class="nav">
-      	<ul>
-        	<li><a href="http://localhost:3000/">Home</a></li>
-        	<li><a href="http://localhost:3000/restaurants">Restaurants</a></li>
-        	<li><a href="http://localhost:3000/signup">Sign Up</a></li>
-        	<li><a href="http://localhost:3000/contact">Contact</a></li>
-      	</ul>
-    	</div>
-	</div>
+	<h1>LEFT&larr;OVERS</h1>
+  <h2>HAVE EXTRA FOOD? POST IT HERE. <br> NEED EXTRA FOOD? GET IT HERE.</h2>
+	<div class="nav">
+      <ul>
+        <li><a href="http://localhost:3000/">Home</a></li>
+        <li><a href="http://localhost:3000/restaurants">Restaurants</a></li>
+        <li><a href="http://localhost:3000/signup">Sign Up</a></li>
+        <li><a href="http://localhost:3000/contact">Contact</a></li>
+      </ul>
+    </div>
+   <article>
+     <form id="restForm">
+       <input type="text" name="name" placeholder="Name">
+       <input type="text" name="address" placeholder="Address">
+       <input type="text" name="foodleft" placeholder="Type of Food">
+       <input type="text" name="phoneNum" placeholder="Phone #">
+       <input type="text" name="email" placeholder="Email">
+       <button type="submit">Submit</button>
+     </form>
 
+      <!-- <form class="form-inline" id="newBookForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" placeholder="Book title">
+          </div>
+          <div class="form-group">
+            <label for="title">Author</label>
+            <input type="text" class="form-control" name="author" placeholder="Book author">
+          </div>
+          <button type="submit" class="btn btn-default">Create book</button>
+        </form>
+ -->
+
+
+
+   </article>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src = "/scripts/signup.js" charset="utf-8"></script>
 </body>
 </html>
