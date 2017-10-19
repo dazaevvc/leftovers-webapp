@@ -25,13 +25,13 @@ h1:before, h1:after {
     position: absolute;
     top: 1%;
     overflow: hidden;
-    width: 50%;
+    width: 34%;
     height: 8px;
     content: '\a0';
     background-color: #3A1D36;
 }
 h1:before {
-    margin-left: -50%;
+    margin-left: -34%;
     text-align: right;
 }
 
