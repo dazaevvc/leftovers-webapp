@@ -13,43 +13,20 @@ $(document).ready(function() {
 function onSuccess(data) {
 	console.log(data);
 	for (var i = 0; i < data.length ; i++) {
-		$('#main').append('<div class = "name">Restaurant: '+data[i].name+'</div><br>');
-		$('#main').append('<div class = "address">Address: '+data[i].address+'</div><br>');
-		// $('#main').append('<div class = "foodLeft">Food Available: '+data[i].foodLeft[0].weight+' of '+data[i].foodLeft[0].name+' prepared on '+data[i].foodLeft[0].datePrepared+'</div><br>');
-		// 	for (var x = 1; x < data[i].foodLeft.length ; x++) {
-		// 		$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[x].weight+' of '+data[i].foodLeft[x].name+' prepared on '+data[i].foodLeft[x].datePrepared+'</div><br>');
+		$('#main').append('<div class = "name"><br>'+data[i].name+'</div>');
+		$('#main').append('<div class = "address">'+data[i].address+'</div>');
+		$('#main').append('<div class = "phoneNum">'+data[i].phoneNum+'</div>');
+		$('#main').append('<div class = "email">'+data[i].email+'</div>');
+		$('#main').append('<div class = "foodHeader">Food Available: <br></div>');
 
-		// };
-		$('#main').append('<div class = "phoneNum">Phone: '+data[i].phoneNum+'</div><br>');
-		$('#main').append('<div class = "email">Email: '+data[i].email+'</div><br><br><br>');
+		$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[0].weight+' of '+data[i].foodLeft[0].name+' prepared on '+data[i].foodLeft[0].datePrepared+'</div>');
+			for (var x = 1; x < data[i].foodLeft.length ; x++) {
+				$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[x].weight+' of '+data[i].foodLeft[x].name+' prepared on '+data[i].foodLeft[x].datePrepared+'</div>');
+		};
+
 	};
 };
 
 function onError(data) {
 	console.log('ya dummy');
 };
-
-// post call not sure if it is correct it needs to point to an element in the html and
-// a callback function(i think)
-
-
-// $(document).ready(function() {
-
-//   $("#restForm").on('submit', function(e) {
-//     e.preventDefault();
-//     $.ajax({
-//       method: 'POST',
-//       url: 'http://localhost:3000/api/restaurants',
-//       data: $(this).serialize(),
-//       success: Success,
-//       error: Error
-//     });
-//   });
-
-// }
-
-
-
-
-
-
