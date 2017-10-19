@@ -30,7 +30,7 @@ function onError(data) {
 };
 
 // post call not sure if it is correct it needs to point to an element in the html and
-//a callback function(i think)
+// a callback function(i think)
 
 
 // $(document).ready(function() {
