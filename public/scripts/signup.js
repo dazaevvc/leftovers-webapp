@@ -6,7 +6,7 @@ $(document).ready(function() {
     e.preventDefault();
     var signRest = {  name: $('#name').val(),
                       address: $('#address').val(),
-                      foodLeft: $('#foodLeft').val(),
+                      //foodLeft: $('#foodLeft').val(),
                       phoneNum: $('#phoneNum').val(),
                       email: $('#email').val(),
                   };
@@ -23,10 +23,11 @@ $(document).ready(function() {
 function onSuccess(signRest) {
 	console.log(signRest);
   $(signRest).val('');
-  api.restaurants.push(signRest);
-  render();
+  //api.restaurants.push(signRest);
+  //render();
 };
 
 function onError(json) {
+  $('#errorText').append('that restaurant already exist, type something different you dummy!');
 	console.log('ya dummy');
 };
