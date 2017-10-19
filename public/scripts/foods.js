@@ -25,7 +25,7 @@ $(document).ready(function() {
     var restaurantId = $('form').attr("data-rest-id");
     $.ajax({
       method: 'POST',
-      url: `http://localhost:3000/api/restaurants/${restaurantId}/food`,
+      url: `/api/restaurants/${restaurantId}/food`,
       data: signFood,
       success: onSuccess,
       error: onError

@@ -12,7 +12,7 @@ $(document).ready(function() {
                   };
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/api/restaurants',
+      url: '/api/restaurants',
       data: signRest,
       success: onSuccess,
       error: onError

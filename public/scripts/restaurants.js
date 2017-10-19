@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	$.ajax({
 		method: 'GET',
-		url: 'http://localhost:3000/api/restaurants',
+		url: '/api/restaurants',
 		dataType: 'json',
 		data: '',
 		success: onSuccess,
