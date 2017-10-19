@@ -24,7 +24,7 @@ function onSuccess(data) {
 				$('#main').append('<div class = "foodLeft">'+data[i].foodLeft[x].weight+' of '+data[i].foodLeft[x].name+' prepared on '+data[i].foodLeft[x].datePrepared+'</div>');
 		};
 		var restUrlId = data[i]._id;
-		$('#main').append(`<button class="foodButton" type="submit"><a href="http://localhost:3000/restaurants/${restUrlId}/food">Add Food</a></button><br><br><br>`);
+		$('#main').append(`<button class="foodButton" type="submit"><a data-id="${restUrlId}" href="http://localhost:3000/restaurants/${restUrlId}/food">Add Food</a></button><br><br><br>`);
 
 
 	};
