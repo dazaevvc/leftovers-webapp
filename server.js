@@ -48,6 +48,10 @@ app.get("/contact", function(req,res) {
 	res.render('contact', {});
 });
 
+app.get("/restaurants/:restId/food", function(req,res) {
+	res.render('food', {});
+});
+
 app.get("/api/restaurants", restRoutes.getRestaurantList);
 app.get("/api/restaurants/:restId", restRoutes.getRestaurantListId);
 app.post("/api/restaurants", restRoutes.createRestaurantList);
