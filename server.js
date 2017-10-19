@@ -49,7 +49,7 @@ app.get("/contact", function(req,res) {
 });
 
 app.get("/restaurants/:restId/food", function(req,res) {
-	res.render('food', {});
+	res.render('food', {restId: req.params.restId});
 });
 
 app.get("/api/restaurants", restRoutes.getRestaurantList);

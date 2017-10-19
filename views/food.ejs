@@ -23,7 +23,7 @@
 		<h2>HAVE EXTRA FOOD? POST IT HERE.</h2>
 
    <article>
-     <form id="foodForm">
+     <form id="foodForm" data-rest-id="<%= restId %>">
        <input type="text" name="name" placeholder="Name" id="name">
        <input type="text" name="weight" placeholder="Weight" id="weight">
        <input type="text" name="datePrepared" placeholder="Date of preparation" id="datePrepared">
@@ -36,6 +36,6 @@
 
    </article>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script src = "/scripts/signup.js" charset="utf-8"></script>
+<script src = "/scripts/foods.js" charset="utf-8"></script>
 </body>
 </html>

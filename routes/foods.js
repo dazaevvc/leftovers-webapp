@@ -30,8 +30,7 @@ function createFoodItem (req, res){
     const newFood = db.Food({
      name: req.body.name,
      weight: req.body.weight,
-     datePrepared: req.body.datePrepared,
-     restName: req.body.restObject
+     datePrepared: req.body.datePrepared
     });
 
     console.log(restObject);
