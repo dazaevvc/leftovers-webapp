@@ -24,9 +24,10 @@
 
    <article>
      <form id="foodForm" data-rest-id="<%= restId %>">
-       <input type="text" name="name" placeholder="Name" id="name">
-       <input type="text" name="weight" placeholder="Weight" id="weight">
-       <input type="text" name="datePrepared" placeholder="Date of preparation" id="datePrepared">
+       <input class="foodInput" type="text" name="name" placeholder="Name" id="name">
+       <input class="foodInput" type="text" name="weight" placeholder="Weight" id="weight">
+       <input class="foodInput" type="text" name="datePrepared" placeholder="Date of preparation" id="datePrepared">
+			 <br>
        <button type="submit" id="addFood">Submit</button>
      </form>
      <dir id="errorText"></dir>

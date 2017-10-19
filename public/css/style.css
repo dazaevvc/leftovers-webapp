@@ -143,3 +143,43 @@ form#foodForm {
   align-items: center;
 	text-align: center;
 }
+
+#food-logo {
+	width: 20%;
+	height: 20%;
+	padding-right: 2%;
+}
+
+.indexMessage{
+	display: flex;
+	justify-content: center;
+	padding-top: 40px;
+}
+
+.textMessage {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.welcomeMessage {
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #3A1D36;
+	font-size: 39px;
+  font-weight: bold;
+	margin-bottom: inherit;
+	margin-top: 20px;
+}
+
+.welcomeP {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 25px;
+}
+
+.restInput {
+	width: 20%;
+}
+
+.foodInput {
+	width: 20%;
+}
