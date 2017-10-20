@@ -222,3 +222,8 @@ form#foodForm {
 .signBtn:hover {
 	background-color: #BA182D;
 }
+
+div.foodLeft {
+	background-color: #F7ECE4;
+	border: 2px solid #3C1D36	;
+}
