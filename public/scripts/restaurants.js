@@ -17,7 +17,7 @@ function onSuccess(data) {
 		$('#main').append('<div class = "name keys"><br>'+data[i].name+'</div>');
 		$('#main').append('<div class = "address keys">'+data[i].address+'</div>');
 		$('#main').append('<div class = "phoneNum keys">'+data[i].phoneNum+'</div>');
-		$('#main').append('<div class = "email keys">'+data[i].email+'</div>');
+		$('#main').append('<div class = "email keys">'+data[i].email+'</div><br>');
 		$('#main').append('<div class = "foodHeader keys">Food Available: <br></div>');
 
 			for (var x = 1; x < data[i].foodLeft.length ; x++) {
