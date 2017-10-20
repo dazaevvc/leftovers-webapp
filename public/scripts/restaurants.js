@@ -10,15 +10,6 @@ $(document).ready(function() {
 	});
 });
 
-// var keys = document.querySelectorAll(".keys");
-//
-// keys.forEach(function (data){
-// 	if (true) {
-//
-// 	} else {
-//
-// 	}
-// });
 
 function onSuccess(data) {
 	console.log(data);
