@@ -103,6 +103,22 @@ button.foodButton a {
 	font-size: 13px;
 }
 
+button#addRest a {
+	text-decoration: none;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #3A1D36;
+	color: #EED7C5;
+	font-size: 13px;
+}
+
+button#addFood a {
+	text-decoration: none;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #3A1D36;
+	color: #EED7C5;
+	font-size: 13px;
+}
+
 .foodButton{
 	background-color: #3A1D36;
 	border-radius: 10px;
@@ -167,6 +183,7 @@ form#foodForm {
 	flex-direction: column;
 	text-align: center;
 	background-color: #F7ECE4;
+	padding-bottom: 23px;
 }
 
 .welcomeMessage {
@@ -181,6 +198,7 @@ form#foodForm {
 .welcomeP {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 25px;
+	padding: 0 15px;
 }
 
 .restInput {

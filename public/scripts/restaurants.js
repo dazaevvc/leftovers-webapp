@@ -25,8 +25,6 @@ function onSuccess(data) {
 		};
 		var restUrlId = data[i]._id;
 		$('#main').append(`<button class="foodButton" type="submit"><a data-id="${restUrlId}" href="/restaurants/${restUrlId}/food">Add Food</a></button><br><br><br>`);
-
-
 	};
 };
 
